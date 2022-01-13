@@ -1,0 +1,7 @@
+Inference strategy:
+var dist = Infer({method:'SMC', particles: 10000, rejuvSteps: 50, model: mymodel})
+log Z = -139.0315199211271
+DNA yield shape (k): 6.3347603229511344 +/- 0.9877343956793398
+DNA yield scale (theta): 0.8503404292729131 +/- 0.825187573916417
+PCR factor log mean (mu): 5.722407477844893 +/- 1.145059641735413
+PCR factor log stand dev (sigma): 1.5784324613584995 +/- 0.20794108509597242
