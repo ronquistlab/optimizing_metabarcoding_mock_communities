@@ -884,7 +884,7 @@ var mymodel = function() {
         read_props
     );
 
-    // Now consider the effect of the rate parameter of the
+    // Now consider the effect of the scale parameter of the
     // yield gamma, and of the PCR factor on the total read count.
    
     // It is convenient to use a log-normal prior for the rate

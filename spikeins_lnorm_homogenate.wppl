@@ -916,10 +916,10 @@ var mymodel = function() {
 //var dist = Infer({method:'incrementalMH', samples:10, lag:10, burn:10, model:mymodel});
 
 // Real infer strategies. Note that HMC tends to fail, probably a bug in WebPPL.
-var dist = Infer({method:'incrementalMH', samples: 1000, lag: 10000, burn: 1000, model: mymodel})
+//var dist = Infer({method:'incrementalMH', samples: 1000, lag: 10000, burn: 1000, model: mymodel})
 //var dist = Infer({method:'MCMC', kernel: 'MH', samples: 1000, lag: 10000, burn: 1000, model: mymodel})
 //var dist = Infer({method:'MCMC', kernel: {HMC: {steps: 10, stepSize: 0.05}}, samples: 1000, lag: 10, burn: 100, model: mymodel})
-//var dist = Infer({method:'SMC', particles: 10000, rejuvSteps: 50, model: mymodel})
+var dist = Infer({method:'SMC', particles: 10000, rejuvSteps: 50, model: mymodel})
 
 console.log( 'Inference strategy:' );
 console.log( "var dist = Infer({method:'SMC', particles: 10000, rejuvSteps: 50, model: mymodel})" );
