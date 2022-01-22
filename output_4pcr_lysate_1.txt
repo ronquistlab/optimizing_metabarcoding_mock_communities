@@ -1,0 +1,16 @@
+Inference strategy:
+var dist = Infer({method:'SMC', particles: 10000, rejuvSteps: 50, model: mymodel})
+log Z = -1765.2885392588014
+DNA yield shape (k): 2.302423973448389 +/- 0.21811186992825524
+DNA yield scale (theta0): 1.243431620721895 +/- 1.0107737554002187
+DNA yield scale (theta1): 1.1243368135677316 +/- 0.8912900438053298
+DNA yield scale (theta2): 1.0757578001315948 +/- 0.8434858312470738
+
+ReferenceError: marg_theta3 is not defined
+    at spikeins_4pcr_lysate.wppl:980
+
+979|     );
+980| var mean_theta3 = listMean(marg_theta3);
+     ---------------------------^
+981| var sd_theta3 = listStdev(marg_theta3, mean_theta3);
+
