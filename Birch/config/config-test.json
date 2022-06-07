@@ -1,6 +1,6 @@
 {
     "model": {
-        "class": "OptmetabarModel_L_w"
+        "class": "OptmetabarModel_LPred"
     },
     "filter": {
         "nparticles": 10000

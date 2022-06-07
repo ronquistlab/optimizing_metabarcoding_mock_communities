@@ -18,28 +18,28 @@
       μ ~ Gaussian(6.5, σ2);
   }
 
-  override function simulate(t:Integer) {
-    if t <= 21 { //Training data, all 21 rows in homogenate (total data set).
+  override function simulate(j:Integer) {
+    if j <= 21 { //Training data, all 21 rows in homogenate (total data set).
         let logC <~ Gaussian(μ, σ2);
-        c[t] <- exp(logC);
-        for i in 1..4 { //4 spikeins. n=1 for the spikeins.
-              Reads[i] ~> Gamma(k, c[t]*θ);
+        c[j] <- exp(logC);
+        for t in 1..4 { //4 spikeins. n=1 for the spikeins, specimens.
+              Reads[t] ~> Gamma(k, c[j]*θ);
         }
     }
     else { //row 22-33. c 10-21 Prediction data set (rest of input file (12 rows): look only at 7 other species.
-        for i in 6..12 {
-            if Reads[i] > 0 {
-                n[(t-21),(i-5)] <~ UniformInteger(1,30);
-                Reads[i] ~> Gamma(n[(t-21),(i-5)]*k, c[t-12]*θ);
+        for t in 6..12 {
+            if Reads[t] > 0 {
+                n[(j-21),(t-5)] <~ UniformInteger(1,30);
+                Reads[t] ~> Gamma(n[(j-21),(t-5)]*k, c[j-12]*θ);
                 }
             else {
-                n[(t-21),(i-5)] <- 0;
+                n[(j-21),(t-5)] <- 0;
                 }
           }
     }
 }
 
-  override function read(t:Integer, buffer:Buffer) {
+  override function read(j:Integer, buffer:Buffer) {
       Reads <-? buffer.get<Integer[_]>();
   }
     

@@ -18,28 +18,28 @@
       μ ~ Gaussian(6.5, σ2);
   }
 
-  override function simulate(t:Integer) {
-    if t <= 56 { //Training data, all 56 rows in lysate (total data set).
+  override function simulate(j:Integer) {
+    if j <= 56 { //Training data, all 56 rows in lysate (total data set).
         let logC <~ Gaussian(μ, σ2);
-        c[t] <- exp(logC);
-        for i in 1..4 { //4 spikeins. n=1 for the spikeins, specimens. 
-              Reads[i] ~> Gamma(k*1.1225, c[t]*θ);
+        c[j] <- exp(logC);
+        for t in 1..4 { //4 spikeins. 1.1225 = average spikein weight (mg) 
+              Reads[t] ~> Gamma(k*1.1225, c[j]*θ);
         }
     }
     else {
-        for i in 6..12 {
-            if Reads[i] > 0 {
-                n[(t-56),(i-5)] <~ Uniform(0.0001,100);
-                Reads[i] ~> Gamma(n[(t-56),(i-5)]*k, c[t-47]*θ);
+        for t in 6..12 {
+            if Reads[t] > 0 {
+                n[(j-56),(t-5)] <~ Uniform(0.0001,100);
+                Reads[t] ~> Gamma(n[(j-56),(t-5)]*k, c[j-47]*θ);
                 }
             else {
-                n[(t-56),(i-5)] <- 0;
+                n[(j-56),(t-5)] <- 0;
                 }
           }
     }
 }
 
-  override function read(t:Integer, buffer:Buffer) {
+  override function read(j:Integer, buffer:Buffer) {
       Reads <-? buffer.get<Integer[_]>();
   }
     
