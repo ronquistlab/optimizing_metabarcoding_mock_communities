@@ -1,0 +1,47 @@
+class OptmetabarModel_LPredw < Model {//Use dataset L_3
+    k:Real;
+    θ:Real;
+    σ2:Random<Real>;
+    μ:Random<Real>;
+    Reads:Integer[_];
+    c:Real[56]; //
+    n:Real[47,7]; //47 is for homogenate data, no of experiments. 7 species.
+
+  override function simulate() {
+      k <~ Gamma(1.0, 10.0);
+      let logθ <~ Gaussian(0.0, pow(2.0, 2));
+      θ <- exp(logθ);
+      σ2 ~ InverseGamma(3.0, 3.0*9.0);
+      μ ~ Gaussian(6.5, σ2);
+  }
+
+  override function simulate(t:Integer) {
+    if t <= 56 { //Training data, all 56 rows in lysate (total data set).
+        let logC <~ Gaussian(μ, σ2);
+        c[t] <- exp(logC);
+        for i in 1..4 { //4 spikeins. n=1 for the spikeins, specimens. 
+              Reads[i] ~> Gamma(k*1.1225, c[t]*θ);
+        }
+    }
+    else {
+        for i in 6..12 {
+            if Reads[i] > 0 {
+                n[(t-56),(i-5)] <~ Uniform(0.0001,100);
+                Reads[i] ~> Gamma(n[(t-56),(i-5)]*k, c[t-47]*θ);
+                }
+            else {
+                n[(t-56),(i-5)] <- 0;
+                }
+          }
+    }
+}
+
+  override function read(t:Integer, buffer:Buffer) {
+      Reads <-? buffer.get<Integer[_]>();
+  }
+    
+    override function write(buffer:Buffer) {
+              buffer.set("n", n);
+      }
+}
+

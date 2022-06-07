@@ -1,0 +1,45 @@
+/**
+ * Model for optimal metabarcoding study,  Homogenate data set
+ */
+class OptmetabarModel_H_4k < Model {
+  k:Real[4];
+  θ:Real;
+  μ:Random<Real>;
+  σ2:Random<Real>;
+  c:Real[21];
+  Reads:Integer[_];
+
+  override function simulate() {
+      k[1] <~ Gamma(1.0, 10.0);
+      k[2] <~ Gamma(1.0, 10.0);
+      k[3] <~ Gamma(1.0, 10.0);
+      k[4] <~ Gamma(1.0, 10.0);
+      let logθ <~ Gaussian(0.0, pow(2.0, 2));
+      θ <- exp(logθ);
+      σ2 ~ InverseGamma(3.0, 3.0*9.0);
+      μ ~ Gaussian(6.5, σ2);
+  }
+
+  override function simulate(t:Integer) {
+       let logC <~ Gaussian(μ, σ2);
+       c[t] <- exp(logC);
+          for i in 1..4 {
+            if Reads[i] > 0 {
+              Reads[i] ~> Gamma(k[i], c[t]*θ);
+            }
+          }
+   }
+
+  override function read(t:Integer, buffer:Buffer) {
+    Reads <-? buffer.get<Integer[_]>();
+  }
+
+  override function write(buffer:Buffer) {
+    buffer.set("k", k);
+    buffer.set("θ", θ);
+    for i in 1..21 { buffer.set("c" + i, c[i]); }
+    buffer.set("μ", μ.getDistribution());
+    buffer.set("σ2", σ2.getDistribution());
+  }
+}
+

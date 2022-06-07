@@ -1,0 +1,12 @@
+{
+    "model": {
+        "class": "OptmetabarModel_L_4k4theta"
+    },
+    "filter": {
+        "nparticles": 500000
+    },
+    "sampler": {
+        "nsamples": 100
+    },
+    "output": "output/test.json"
+}

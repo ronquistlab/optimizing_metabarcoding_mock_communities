@@ -1,0 +1,47 @@
+class OptmetabarModel_HPredw < Model {//Use dataset H_3
+    k:Real;
+    θ:Real;
+    σ2:Random<Real>;
+    μ:Random<Real>;
+    Reads:Integer[_];
+    c:Real[21];
+    n:Real[12,7]; //12 is for homogenate data, no of experiments. 7 species.
+
+  override function simulate() {
+      k <~ Gamma(1.0, 10.0);
+      let logθ <~ Gaussian(0.0, pow(2.0, 2));
+      θ <- exp(logθ);
+      σ2 ~ InverseGamma(3.0, 3.0*9.0);
+      μ ~ Gaussian(6.5, σ2);
+  }
+
+  override function simulate(t:Integer) {
+    if t <= 21 { //Training data, all 21 rows in homogenate (total data set).
+        let logC <~ Gaussian(μ, σ2);
+        c[t] <- exp(logC);
+        for i in 1..4 { //4 spikeins. n= average biomass.
+              Reads[i] ~> Gamma(k*1.1225, c[t]*θ);
+        }
+    }
+    else { //row 22-33. c 10-21 Prediction data set (rest of input file (12 rows): look only at 7 other species.
+        for i in 6..12 {
+            if Reads[i] > 0 {
+                n[(t-21),(i-5)] <~ Uniform(0.0001,100);
+                Reads[i] ~> Gamma(n[(t-21),(i-5)]*k, c[t-12]*θ);
+                }
+            else {
+                n[(t-21),(i-5)] <- 0;
+                }
+          }
+    }
+}
+
+  override function read(t:Integer, buffer:Buffer) {
+      Reads <-? buffer.get<Integer[_]>();
+  }
+    
+    override function write(buffer:Buffer) {
+              buffer.set("n", n);
+      }
+}
+
