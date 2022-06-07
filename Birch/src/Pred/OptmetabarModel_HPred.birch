@@ -1,4 +1,7 @@
-class OptmetabarModel_HPred < Model {//Use dataset H_3
+/**
+ * Model for optimal metabarcoding study, predictions.  Homogenate data set. Use dataset H_pred
+ */
+ class OptmetabarModel_HPred < Model {
     k:Real;
     θ:Real;
     σ2:Random<Real>;

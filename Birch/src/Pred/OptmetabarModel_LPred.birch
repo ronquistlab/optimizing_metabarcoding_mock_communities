@@ -1,4 +1,7 @@
-class OptmetabarModel_LPred < Model {//Use dataset L_3
+/**
+ * Model for optimal metabarcoding study, predictions. Lysate data set. Use dataset L_pred
+ */
+ class OptmetabarModel_LPred < Model {
     k:Real;
     θ:Real;
     σ2:Random<Real>;

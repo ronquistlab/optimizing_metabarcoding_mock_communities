@@ -23,17 +23,17 @@ class OptmetabarModel_H_4theta_w < Model {
       μ ~ Gaussian(6.5, σ2);
   }
 
-  override function simulate(t:Integer) {
+  override function simulate(j:Integer) {
        let logC <~ Gaussian(μ, σ2);
-       c[t] <- exp(logC);
-          for i in 1..4 {
-            if Reads[i] > 0 {
-              Reads[i] ~> Gamma(k*1.1225, c[t]*θ[i]);
+       c[j] <- exp(logC);
+          for t in 1..4 {
+            if Reads[t] > 0 {
+              Reads[t] ~> Gamma(k*1.1225, c[j]*θ[t]);
             }
           }
    }
 
-  override function read(t:Integer, buffer:Buffer) {
+  override function read(j:Integer, buffer:Buffer) {
     Reads <-? buffer.get<Integer[_]>();
   }
 
