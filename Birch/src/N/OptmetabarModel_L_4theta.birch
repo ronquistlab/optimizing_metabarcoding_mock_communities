@@ -1,5 +1,5 @@
 /**
- * Model for optimal metabarcoding study,  Homogenate data set
+ * Model for optimal metabarcoding study, Lysate data set. Use lysate data without Gryllodes experiment with zeros.
  */
 class OptmetabarModel_L_4theta < Model {
   k:Real;
@@ -23,17 +23,17 @@ class OptmetabarModel_L_4theta < Model {
       μ ~ Gaussian(6.5, σ2);
   }
 
-  override function simulate(t:Integer) {
+  override function simulate(j:Integer) {
        let logC <~ Gaussian(μ, σ2);
-       c[t] <- exp(logC);
-          for i in 1..4 {
-            if Reads[i] > 0 {
-              Reads[i] ~> Gamma(k, c[t]*θ[i]);
+       c[j] <- exp(logC);
+          for t in 1..4 {
+            if Reads[t] > 0 {
+              Reads[t] ~> Gamma(k, c[j]*θ[t]);
             }
           }
    }
 
-  override function read(t:Integer, buffer:Buffer) {
+  override function read(j:Integer, buffer:Buffer) {
     Reads <-? buffer.get<Integer[_]>();
   }
 
