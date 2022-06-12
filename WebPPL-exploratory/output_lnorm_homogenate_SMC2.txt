@@ -1,8 +1,0 @@
-Inference strategy:
-var dist = Infer({method:'SMC', particles: 10000, rejuvSteps: 50, model: mymodel})
-log Z = -115.7211124547389
-DNA yield log mean (mu_yield): 0.13155427229322111 +/- 0.6971739225868875
-DNA yield log stdev (sigma_yield): 0.8345820512429488 +/- 0.022834064220721283
-PCR factor log mean (mu_pcr): 6.6683793325972305 +/- 0.7527141051626962
-PCR factor log stdev (sigma_pcr): 1.6367093241104307 +/- 0.1999059822275745
-done

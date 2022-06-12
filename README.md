@@ -14,7 +14,6 @@ This is the source code repository accompanying the paper.
 | `Birch`   | Models in Birch            |
 | `ModelDescription`    | Detailed description of model and model extentions as PDF |
 | `R`       | Help functions in R for data processing        |
-| `WebPPL-exploratory`  | Early exploratory work with the models in WebPPL           |
 
 ## How to download this repository?
 

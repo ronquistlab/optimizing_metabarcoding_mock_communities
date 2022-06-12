@@ -1,8 +1,0 @@
-Inference strategy:
-var dist = Infer({method:'incrementalMH', samples: 1000, lag: 10000, burn: 1000, model: mymodel})
-log Z = undefined
-DNA yield log mean (mu_yield): -6.511999843701461 +/- 6.661338147750939e-14
-DNA yield log stdev (sigma_yield): 1.0522660792623624 +/- 0.08715142144039141
-PCR factor log mean (mu_pcr): 13.008050891869585 +/- 0.44412811473857755
-PCR factor log stdev (sigma_pcr): 2.0566671145291244 +/- 0.290592964980211
-done

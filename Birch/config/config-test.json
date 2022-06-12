@@ -1,12 +1,12 @@
 {
     "model": {
-        "class": "OptmetabarModel_LPred"
+        "class": "OptmetabarModel_H"
     },
     "filter": {
         "nparticles": 10000
     },
     "sampler": {
-        "nsamples": 3
+        "nsamples": 10
     },
     "output": "output/test.json"
 }
