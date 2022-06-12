@@ -50,7 +50,7 @@ The datasets L_pred and H_pred contain the same data sets but in a slightly diff
 ## Different model versions
 
 The basic model and its extensions is described in the [`ModelDescription`](ModelDescription) directory. 
-The code either uses the lysate data set ("L") or homogenate data set ("H") and has been set up and used in four "versions" (appended either with H and L). Examples using homogenate data: 
+The code either uses the lysate data set ("L") or homogenate data set ("H") and has been set up and used in four versions. Examples of the naming syntax using homogenate data: 
 
 | Model name in Birch | Description                             |
 |:----------|:----------------------------------------|
@@ -59,6 +59,6 @@ The code either uses the lysate data set ("L") or homogenate data set ("H") and 
 | `OptmetabarModel_H_4theta`       | The model with one joint k and one theta per spike-in species.       |
 | `OptmetabarModel_H_4k4theta`  | The model with one k and one theta per spike-in species.          |
 
-There are three folders in the  [`src`](src) directory, where the models in the N directory use number of spikein specimens, in the Weights directory the models use spikein weights, and in the Pred directory the code for predicting number of specimens or biomass is located. 
+There are three folders in the  [`src`](src) directory, where the models in the N directory use number of spikein specimens, in the Weights directory the models use spikein weights, and in the Pred folder the code for predicting number of specimens or biomass is located. 
 
 
