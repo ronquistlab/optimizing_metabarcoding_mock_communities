@@ -1,4 +1,4 @@
-# Untitled package
+# Optimal metabarcoding - Birch code
 
 ## License
 
