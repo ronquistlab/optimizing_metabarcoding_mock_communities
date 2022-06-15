@@ -1,4 +1,4 @@
-# Evaluating metabarcoding protocols using replicated mock communities
+# Optimizing insect metabarcoding using replicated mock communities
 
 Elzbieta Iwaszkiewicz-Eggebrecht, Emma Granqvist, Mateusz Buczek, Monika Prus, Tomas Roslin, Ayco J.M. Tack, Anders F. Andersson, Andreia Miraldo, Piotr Łukasik, Fredrik Ronquist
 
