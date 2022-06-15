@@ -5,7 +5,7 @@ Elzbieta Iwaszkiewicz-Eggebrecht, Emma Granqvist, Mateusz Buczek, Monika Prus, T
 This is the source code repository accompanying the paper.
 
   * Preprint available at [bioRxiv](https://www.biorxiv.org/...)
-  * Corresponding author: Fredrik Ronquist, fredrik.ronquist (at) nrm.se
+  * Corresponding author: Elzbieta Iwaszkeiwicz-Eggebrecht, ela.iwaszkiewicz (at) nrm.se
 
 ## Contents
 
