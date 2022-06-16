@@ -39,6 +39,12 @@ Files in the [`config`](config) directory allow the configuration of various opt
 Run an individual model with
 
 ```
+birch sample --model [model] --input [input file] --output [output file] --config [config file]
+```
+
+for example
+
+```
 birch sample --model OptmetabarModel_H --input input/H.json --output output/test-H.json --config config/configExp3-5.json
 ```
 
