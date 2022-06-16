@@ -20,6 +20,9 @@ This is the source code repository accompanying the paper.
 ```
 git clone http://github.com/ronquistlab/optimal_metabarcoding
 ```
+We have used the following versions (referring to particular commits) in our experiments: c03d2a8
+
+
 
 # Models in Birch
 
