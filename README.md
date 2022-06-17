@@ -11,8 +11,10 @@ This is the source code repository accompanying the paper.
 
 | Directory | Description                             |
 |:----------|:----------------------------------------|
-| `Experimental` | Models in Birch            |
-| `Modelling`    | Models in Birch. Detailed description of model and model extentions as PDF. Help functions in R for data processing |
+| `Experimental` |             |
+| `Modelling`    | `Birch`    | Models in Birch. |
+| `Modelling`    | `ModelDescription`    | Detailed description of model and model extentions as PDF.  |
+| `Modelling`    | `R`    | Help functions in R for data processing of Birch results |
 
 ## How to download this repository?
 
