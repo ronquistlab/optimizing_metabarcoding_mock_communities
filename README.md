@@ -9,8 +9,8 @@ This is the source code repository accompanying the paper.
 
 ## Contents
 
-| Directory | Description                             |
-|:----------|:----------------------------------------|
+| Directory |  Subdirectory | Description                        |
+|:----------|:----------|:----------------------------------------|
 | `Experimental` |             |
 | `Modelling`    | `Birch`    | Models in Birch. |
 | `Modelling`    | `ModelDescription`    | Detailed description of model and model extentions as PDF.  |
