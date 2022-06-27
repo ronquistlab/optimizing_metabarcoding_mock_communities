@@ -10,7 +10,7 @@ This is the source code repository accompanying the paper.
 
 | Directory |  Subdirectory | Description                        |
 |:----------|:----------|:----------------------------------------|
-| `Experimental` |             |
+| `Experimental` |             | R scripts used for data analysis and visualization. Resulting count tables and Bray-curtis distance matrices. Information on Illumina MiSeq indices used. Barcode sequences of reference species used to make mock communities.
 | `Modelling`    | `Birch`    | Models in Birch. |
 | `Modelling`    | `ModelDescription`    | Detailed description of model and model extentions as PDF.  |
 | `Modelling`    | `R`    | Help functions in R for data processing of Birch results |
