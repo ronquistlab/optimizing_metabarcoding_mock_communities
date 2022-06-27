@@ -20,7 +20,7 @@ This is the source code repository accompanying the paper.
 ```
 git clone http://github.com/ronquistlab/optimal_metabarcoding
 ```
-We have used the following version (referring to particular commit) in our experiments: 
+We have used the following version (referring to particular commit) in our experiments: 9745a20
 
 
 
