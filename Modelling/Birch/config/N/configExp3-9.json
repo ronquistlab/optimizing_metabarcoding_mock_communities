@@ -1,0 +1,13 @@
+{
+  "model": {
+    "class": "OptmetabarModel_1c"
+  },
+  "filter": {
+    "nparticles": 500000
+  },
+  "sampler": {
+    "nsamples": 100
+  },
+  "input": "input/H.json",
+  "output": "output/output_1c_h.json"
+}

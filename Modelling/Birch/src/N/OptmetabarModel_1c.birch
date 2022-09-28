@@ -1,0 +1,41 @@
+/**
+ * Model for optimal metabarcoding study.
+ */
+class OptmetabarModel_1c < Model {
+  k:Real;
+  θ:Real;
+  μ:Random<Real>;
+  σ2:Random<Real>;
+  c:Real;
+  Reads:Integer[_];
+
+  override function simulate() {
+    k <~ Gamma(1.0, 10.0);
+    let logθ <~ Gaussian(0.0, pow(2.0, 2));
+    θ <- exp(logθ);
+    σ2 ~ InverseGamma(3.0, 3.0*9.0);
+    μ ~ Gaussian(6.5, σ2);
+    let logC <~ Gaussian(μ, σ2);
+    c <- exp(logC);
+  }
+
+  override function simulate(j:Integer) {
+    for t in 1..4 {
+      if Reads[t] > 0 {
+        Reads[t] ~> Gamma(k, c*θ);
+      }
+    }
+  }
+
+  override function read(j:Integer, buffer:Buffer) {
+    Reads <-? buffer.get<Integer[_]>();
+  }
+
+  override function write(buffer:Buffer) {
+    buffer.set("k", k);
+    buffer.set("θ", θ);
+    buffer.set("μ", μ);
+    buffer.set("σ2", σ2);
+    buffer.set("c", c);
+  }
+}
