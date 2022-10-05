@@ -44,8 +44,8 @@ class OptmetabarModel_L_4k4theta < Model {
     buffer.set("k", k);
     buffer.set("θ", θ);
     for i in 1..56 { buffer.set("c" + i, c[i]); }
-    buffer.set("μ", μ.getDistribution());
-    buffer.set("σ2", σ2.getDistribution());
+    buffer.set("μ", μ);
+    buffer.set("σ2", σ2);
   }
 }
 
