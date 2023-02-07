@@ -1,6 +1,6 @@
 # Optimizing insect metabarcoding using replicated mock communities
 
-Elzbieta Iwaszkiewicz-Eggebrecht, Emma Granqvist, Mateusz Buczek, Monika Prus, Tomas Roslin, Ayco J.M. Tack, Anders F. Andersson, Andreia Miraldo, Fredrik Ronquist, Piotr Łukasik
+Elzbieta Iwaszkiewicz-Eggebrecht, Emma Granqvist, Mateusz Buczek, Monika Prus, Jan Kudlicka, Tomas Roslin, Ayco J.M. Tack, Anders F. Andersson, Andreia Miraldo, Fredrik Ronquist, Piotr Łukasik
 
 This is the source code repository accompanying the paper.
 
